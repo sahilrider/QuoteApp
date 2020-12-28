@@ -4,7 +4,8 @@ const app = express();
 
 const MongoClient = require('mongodb').MongoClient
 
-const connectionString = 'mongodb+srv://<username>:<password>@cluster0.3dodw.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const connectionString = process.env.MONGO_URI;
+// const connectionString = 'mongodb+srv://<username>:<password>@cluster0.3dodw.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true})
     .then(client => {
